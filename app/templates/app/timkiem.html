@@ -1,0 +1,31 @@
+{% extends 'app/base.html' %}
+{%load static%}
+<html>
+    <head> 
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+      {% block timKiem %}
+      <h5> Không có sản phẩm {{searched}}</h5>
+      <div class="row"style="width:100%">
+        {%for san_pham in keys %}
+        <div class="col-lg-4">
+          <img class="thumbnail" style="height:300px" src="{{san_pham.hinh_anh.url}}">
+          <div class="box-element product">
+            <h6><strong>{{san_pham.ten_San_Pham}}</strong></h6>
+            <hr>
+            <button data-product={{san_pham.id}} data-action = "add" class="btn btn-outline-secondary add-btn update-cart">Thêm vào giỏ</button>
+            <a class="btn btn-outline-success" href="#">Mua</a>
+            <h5 style="display: inline-block; float: right"><strong>{{san_pham.gia|floatformat:3}}</strong>đ</h5>
+          </div>
+        </div>
+        {% endfor%}
+      </div>
+      {% endblock timKiem %}
+    </body>
+</html>

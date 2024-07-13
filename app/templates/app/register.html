@@ -1,0 +1,65 @@
+{% extends 'app/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Đăng ký</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    {% block Register %}
+    <section>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card border-0 rounded-5 shadow">
+                        <div class="card-body p-4 p-md-5">
+                            {% if not user.is_authenticated %}
+                                <h2 class="text-center fw-bold mb-5">Đăng ký</h2>
+                                <form class="mx-1 mx-md-4" method="POST" action="">
+                                    {% csrf_token %}
+                                    <div class="mb-4">
+                                        <label for="id_username" class="form-label">Tên người dùng</label>
+                                        {{ form.username }}
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label for="id_email" class="form-label">Email của bạn</label>
+                                        {{ form.email }}
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label for="id_password1" class="form-label">Mật khẩu</label>
+                                        {{ form.password1 }}
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label for="id_password2" class="form-label">Nhập lại mật khẩu</label>
+                                        {{ form.password2 }}
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary btn-lg rounded-pill">Đăng ký</button>
+                                    </div>
+                                </form>
+
+                                <p class="text-center mt-4 mb-0">Đã có tài khoản? <a href="{% url 'login' %}">Đăng nhập</a></p>
+                            {% else %}
+                                <h2 class="text-center fw-bold mb-5">Bạn đã đăng nhập</h2>
+                                <p class="text-center">Bạn không thể đăng ký tài khoản mới khi đã đăng nhập.</p>
+                                <p class="text-center"><a href="{% url 'home' %}">Quay lại trang chủ</a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="" async defer></script>
+    {% endblock Register %}
+</body>
+</html>

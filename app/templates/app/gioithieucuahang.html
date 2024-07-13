@@ -1,0 +1,79 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content_gioithieucuahang %}
+     <div class="row"style="width:100%">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Giới Thiệu Cửa Hàng Gấu Bông</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background: #f4f4f4;
+                    color: #333;
+                }
+                .container1 {
+                    width: 80%;
+                    margin: 0 auto;
+                    padding: 20px;
+                    background: #fff;
+                    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                    border-radius: 8px;
+                    margin-top: 50px;
+                }
+                .header {
+                    text-align: center;
+                    padding-bottom: 20px;
+                    border-bottom: 2px solid #e2e2e2;
+                }
+                .header h1 {
+                    margin: 0;
+                    color: #333;
+                    font-size: 2.5em;
+                }
+                .intro {
+                    text-align: justify;
+                    margin: 20px 0;
+                    line-height: 1.6;
+                }
+                .intro p {
+                    margin: 0;
+                    padding: 0;
+                }
+                .cta-button {
+                    display: block;
+                    width: 200px;
+                    margin: 20px auto;
+                    padding: 10px 0;
+                    background: #ff6347;
+                    color: white;
+                    text-align: center;
+                    text-decoration: none;
+                    font-weight: bold;
+                    border-radius: 5px;
+                    transition: background 0.3s;
+                }
+                .cta-button:hover {
+                    background: #ff4500;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container1">
+                <div class="header">
+                    <h1>Chào Mừng Đến Với Cửa Hàng Gấu Bông</h1>
+                </div>
+                <div class="intro">
+                    <p>
+                        Tại Cửa Hàng Gấu Bông của chúng tôi, bạn sẽ tìm thấy những chú gấu bông đáng yêu và chất lượng nhất. Chúng tôi cam kết mang đến cho bạn những sản phẩm được làm từ chất liệu an toàn, mềm mại và bền đẹp. Với dịch vụ chăm sóc khách hàng tận tâm, chúng tôi luôn sẵn sàng hỗ trợ bạn trong việc lựa chọn và bảo quản gấu bông.
+                    </p>
+                    <p>
+                        Hãy đến với chúng tôi để trải nghiệm không gian mua sắm ấm cúng và nhận được những ưu đãi hấp dẫn. Cửa Hàng Gấu Bông mong muốn mang lại niềm vui và sự hài lòng cho mọi khách hàng.
+                    </p>
+                </div>
+                <a href="{%url 'home'%}" class="cta-button">Khám Phá Ngay</a>
+            </div>
+        </body>
+{% endblock content_gioithieucuahang %}

@@ -1,0 +1,54 @@
+{% extends 'app/base.html' %}
+{%load static%}
+{%block banner_slider%}
+<div id="carouselExampleDark" class="carousel carousel-dark slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+  </div>
+  <div class="carousel-inner" data-bs-interval="1000">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <br><br>
+      <img src="{% static 'app/images/banner/02-copy.jpg'%}" class="d-block w-100" alt="ảnh 1"height = '500'>
+      <div class="carousel-caption d-none d-md-block">
+        <h5></h5>
+        <p></p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <br><br>
+      <img src="{% static 'app/images/banner/b3.png'%}" class="d-block w-100" alt="ảnh 2"height = '500'>
+      <div class="carousel-caption d-none d-md-block">
+        <h5></h5>
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+{%endblock banner_slider%}
+{%block main-content%}
+  <div class="row"style="width:100%">
+    {%for san_pham in san_phams %}
+    <div class="col-lg-4">
+      <img class="thumbnail" style="height:300px" src="{{san_pham.hinh_anh.url}}">
+      <div class="box-element product">
+        <h6><strong>{{san_pham.ten_San_Pham}}</strong></h6>
+        <hr>
+        <button data-product={{san_pham.id}} data-action = "add" class="btn btn-outline-secondary add-btn update-cart">Thêm vào giỏ</button>
+        <a class="btn btn-outline-success" href="#">Mua</a>
+        <h5 style="display: inline-block; float: right"><strong>{{san_pham.gia|floatformat:3}}</strong>đ</h5>
+      </div>
+    </div>
+    {% endfor%}
+  </div>
+<br/> <br/> <br/> 
+{%endblock main-content%}
+

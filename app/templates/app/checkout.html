@@ -1,0 +1,67 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content_checkout %}
+<div class="container my-5">
+    <div class="row">
+        <!-- Sản phẩm đã đặt -->
+        <div class="col-lg-12 mb-4">
+			<div class="table">
+				<a  class="btn btn-outline-warning" href="{% url 'cart' %}"> Quay lại</a>
+				<br>
+			</div>
+            <div class="card shadow-sm border-0 rounded">
+                <div class="card-body">
+                    <h5 class="card-title">Sản phẩm đã đặt</h5>
+                    <hr>
+                    {% for item in items %}
+                    <div class="cart-row d-flex mb-3 align-items-center">
+                        <div class="me-3">
+                            <img class="img-fluid rounded" style="max-width: 75px;" src="{{item.san_pham.ImageURL}}">
+                        </div>
+                        <div class="me-auto">
+                            <p class="mb-0"><strong>{{item.san_pham.ten_San_Pham}}</strong></p>
+                            <small class="text-muted">Giá: {{item.san_pham.gia}}</small>
+                        </div>
+                        <div>
+                            <p class="mb-0"><strong>Số Lượng: </strong>{{item.so_luong}}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <hr>
+                    <h5 class="card-text"><strong>Tổng Số lượng:</strong> {{dat_hang.get_cart_items}}</h5>
+                    <h5 class="card-text"><strong>Tổng Tiền: </strong>{{dat_hang.get_cart_total}}00đ</h5>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Thông tin vận chuyển -->
+        <div class="col-lg-12">
+            <div class="card shadow-sm border-0 rounded">
+                <div class="card-body">
+                    <form id="form">
+                        <h5 class="card-title" style="color: #FFA500"><strong>Thông tin vận chuyển</strong></h5>
+                        <hr>
+                        <div class="mb-3">
+                            <label for="name" class="form-label"><strong>Họ và Tên</strong></label>
+                            <input required class="form-control border-primary border-2" type="text" name="name" placeholder="Nhập tên của bạn">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label"><strong>Địa chỉ Email</strong></label>
+                            <input required class="form-control border-primary border-2" type="email" name="email" placeholder="Nhập email của bạn">
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label"><strong>Địa chỉ nhà</strong></label>
+                            <input class="form-control border-primary border-2" type="text" name="address" placeholder="Nhập địa chỉ của bạn">
+                        </div>
+                        <div class="mb-3">
+                            <label for="zipcode" class="form-label"><strong>Số điện thoại</strong></label>
+                            <input class="form-control border-primary border-2" type="text" name="zipcode" placeholder="Nhập số điện thoại của bạn">
+                        </div>
+                        <button id="form-button" class="btn btn-success w-100 rounded-pill" type="submit">Xác nhận thông tin</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content_checkout %}
